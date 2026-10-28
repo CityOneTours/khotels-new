@@ -326,6 +326,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .cta-button {
@@ -337,6 +338,9 @@ span{
     font-size: 16px;
     color: white;
     font-weight: 600;
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
 .cta-button:hover {

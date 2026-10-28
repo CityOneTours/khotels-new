@@ -121,3 +121,4 @@ document.querySelectorAll('.location-slider').forEach(slider => {
     }, 2000);
   });
 }
+

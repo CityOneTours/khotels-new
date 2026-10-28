@@ -1,8 +1,9 @@
 RewriteEngine On
 
-# Map legacy pages directly to their final HTTPS, lowercase URLs in one hop.
+# Redirect legacy pages directly to their final HTTPS URLs
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ https://khotels.ug/ [R=301,L]
+
 RewriteRule ^Rooms\.html$ https://khotels.ug/rooms/ [R=301,L,NC]
 RewriteRule ^Restaurant\.html$ https://khotels.ug/restaurant/ [R=301,L,NC]
 RewriteRule ^mice\.html$ https://khotels.ug/conferences/ [R=301,L,NC]
@@ -11,9 +12,23 @@ RewriteRule ^About\.html$ https://khotels.ug/about/ [R=301,L,NC]
 RewriteRule ^Contact\.html$ https://khotels.ug/contact/ [R=301,L,NC]
 RewriteRule ^faq\.html$ https://khotels.ug/faq/ [R=301,L,NC]
 
-# Force HTTPS and the official non-www domain.
+# Force HTTPS and the official non-www domain
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^khotels\.ug$ [NC]
 RewriteRule ^(.*)$ https://khotels.ug/$1 [R=301,L]
 
+# Show the branded page for missing URLs
 ErrorDocument 404 /404.html
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

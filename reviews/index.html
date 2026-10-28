@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Guest Reviews &amp; Awards | K Hotels Entebbe</title>
     <meta name="description"
-        content="Read K Hotels Entebbe guest ratings and Tripadvisor awards, with links to original review platforms. See source ratings and award details before you book.">
+        content="Read K Hotels Entebbe guest ratings and Tripadvisor awards, with links to original review platforms. See source ratings and award details. now.">
     <link rel="canonical" href="https://khotels.ug/reviews/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="K Hotels Entebbe">
     <meta property="og:title" content="Guest Reviews &amp; Awards | K Hotels Entebbe">
     <meta property="og:description"
-        content="Read K Hotels Entebbe guest ratings and Tripadvisor awards, with links to original review platforms. See source ratings and award details before you book.">
+        content="Read K Hotels Entebbe guest ratings and Tripadvisor awards, with links to original review platforms. See source ratings and award details. now.">
     <meta property="og:url" content="https://khotels.ug/reviews/">
     <meta property="og:image" content="https://khotels.ug/images/og/reviews.jpg">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta name="twitter:image" content="https://khotels.ug/images/og/reviews.jpg">
     <meta name="twitter:title" content="Guest Reviews &amp; Awards | K Hotels Entebbe">
     <meta name="twitter:description"
-        content="Read K Hotels Entebbe guest ratings and Tripadvisor awards, with links to original review platforms. See source ratings and award details before you book.">
+        content="Read K Hotels Entebbe guest ratings and Tripadvisor awards, with links to original review platforms. See source ratings and award details. now.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -36,11 +36,156 @@
         type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://khotels.ug/"},{"@type":"ListItem","position":2,"name":"What Our Guests Say","item":"https://khotels.ug/reviews/"}]}</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* =========================================
-   GUEST REVIEWS & AWARDS - CARD SECTION
-========================================= */
+        .guest-quotes {
+            margin: 3.5rem 0 2rem;
+        }
 
-.cards {
+        .guest-quotes h2 {
+            margin-bottom: .55rem;
+        }
+
+        .guest-quotes-intro {
+            max-width: 760px;
+            color: #c7c4bd;
+            margin: 0 0 1.5rem;
+        }
+
+        .guest-quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+            gap: 1.1rem;
+            align-items: start;
+        }
+
+        .guest-quote-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 340px;
+            min-width: 0;
+            padding: 1.45rem;
+            background: #292929;
+            border: 1px solid #514a3a;
+            border-radius: 12px;
+        }
+
+        .guest-quote-card.is-expanded {
+            height: auto;
+            min-height: 340px;
+        }
+
+        .guest-quote-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .guest-quote-stars {
+            color: #d4a53f;
+            letter-spacing: .1em;
+            white-space: nowrap;
+        }
+
+        .guest-quote-source {
+            padding: .3rem .65rem;
+            border: 1px solid #514a3a;
+            border-radius: 999px;
+            color: #e8e1d1;
+            font: 600 .73rem Montserrat, sans-serif;
+        }
+
+        .guest-quote-card blockquote {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
+            margin: 0 0 .45rem;
+            color: #f4f2ed;
+            font-size: .98rem;
+            line-height: 1.65;
+        }
+
+        .guest-quote-card.is-expanded blockquote {
+            display: block;
+            overflow: visible;
+        }
+
+        .guest-quote-toggle {
+            align-self: flex-start;
+            margin: 0 0 .8rem;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #d4a53f;
+            font: 700 .88rem Montserrat, sans-serif;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+        }
+
+        .guest-quote-toggle:hover {
+            color: #f0c96e;
+        }
+
+        .guest-quote-toggle:focus-visible {
+            outline: 2px solid #d4a53f;
+            outline-offset: 4px;
+        }
+
+        .guest-quote-author {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #514a3a;
+        }
+
+        .guest-quote-author strong {
+            color: #fff;
+            font-size: .92rem;
+        }
+
+        .guest-quote-author a {
+            color: #d4a53f;
+            font-size: .82rem;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .guest-quote-author a:hover {
+            color: #f0c96e;
+        }
+
+        @media (max-width: 600px) {
+            .guest-quotes {
+                margin-top: 2.5rem;
+            }
+
+            .guest-quote-card {
+                height: 340px;
+                padding: 1.2rem;
+            }
+
+            .guest-quote-card.is-expanded {
+                height: auto;
+                min-height: 340px;
+            }
+
+            .guest-quote-author {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .guest-quote-author a {
+                text-align: left;
+            }
+        }
+
+        .cards {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
@@ -171,6 +316,7 @@
             <a href="/restaurant/"><i class="fas fa-utensils"></i> Restaurant</a>
             <a href="/conferences/"><i class="fas fa-briefcase"></i> M.I.C.E</a>
             <a href="/amenities/"><i class="fas fa-spa"></i> Amenities</a>
+            <a href="/spa/"><i class="fas fa-spa"></i> Spa</a>
             <a href="/about/"><i class="fas fa-user"></i> About</a>
             <a href="/contact/"><i class="fas fa-address-book"></i> Contact</a>
             <a href="https://bookings.resavenue.com/engine-ibe/search?regCode=ZZVC0424" class="book-btn">BOOK NOW</a>
@@ -205,6 +351,197 @@
                         target="_blank" rel="noopener">View Tripadvisor awards</a>
                 </article>
             </div>
+            <!-- P08 draft: these thirteen guest review excerpts were supplied for this page. Confirm republishing permission with K Hotels before deployment. -->
+            <section class="guest-quotes" aria-labelledby="guest-quotes-heading">
+                <h2 id="guest-quotes-heading">Guest experiences</h2>
+                <p class="guest-quotes-intro">These guest comments are shown with their original wording. Read more
+                    reviews on the platforms where they were posted.</p>
+                <div class="guest-quotes-grid">
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span
+                                class="guest-quote-source">Tripadvisor</span></div>
+                        <blockquote>Rachel was a pure delight. Always smiling and always so pleasant. Our luggage was
+                            lost and they tried to be very accommodating. The whole staff worked continuously to make
+                            our stay so pleasant and relaxing. I would stay definitely stay at K Hotels on my next visit
+                            to Uganda.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>307jeannep</strong><a
+                                href="https://www.tripadvisor.com/Hotel_Review-g298044-d13395858-Reviews-K_Hotels-Entebbe_Central_Region.html"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Tripadvisor</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span
+                                class="guest-quote-source">Trip.com</span></div>
+                        <blockquote>Hotel was in a great location ..15mins from the airport and walking distance to the
+                            mall. Staff were very welcoming at the desk and the restaurant staff made the meals very
+                            enjoyable. They provided great recommendations for food and drinks.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Trip.com Member</strong><a
+                                href="https://www.trip.com/hotels/entebbe-hotel-detail-15048182/k-hotels-entebbe/"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Trip.com</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>We stayed at K Hotels Entebbe for two nights during May and had a very pleasant
+                            experience. The room was quiet, comfortable and well-equipped, and both the air conditioning
+                            and the shower worked perfectly. The hotel also had a good and varied breakfast buffet which
+                            we really enjoyed. One of the highlights was the large rooftop terrace with a restaurant,
+                            where they served, among other things, very tasty Indian food. From the rooftop you also get
+                            a beautiful view over central Entebbe. Overall K Hotels Entebbe was a very good hotel in
+                            every way. We had a comfortable and enjoyable stay, and I would warmly recommend it to
+                            anyone visiting Entebbe.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Alexander Nordfors</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>I had such a wonderful time at K Hotels Rooftop, Entebbe. The receptionist was so
+                            pleasant and welcoming, and Barbara, who served us, was exceptional—friendly, attentive, and
+                            truly made the experience even better. The live band was fantastic, the ambience was
+                            vibrant, radiant, and colorful, and the breathtaking view of the lake and its surroundings
+                            was simply unforgettable. It was an excellent way to spend World Girlfriends Day. Thank you
+                            for such a memorable experience!</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Twinamatsiko Rebecca</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>I love this Hotel. I spent one night there earlier in my trip and then due to a
+                            problem with my flight home had to spend another two nights there and was so glad I did..
+                            Good size rooms with a big comfortable bed and well appointed bathroom. Rooftop dining with
+                            a great menu and the breakfast is served buffet style on the ground floor with a good choice
+                            of breakfast staples. The staff at this hotel are absolutely outstanding. The front of house
+                            staff are so friendly and helpful and always greet you with a big smile. Same with the staff
+                            in the buffet breakfast area, they are always up for a chat and help you out with all things
+                            to do with your breakfast including some suggestions of what to try The stuff on the sixth
+                            floor roof rooftop restaurant and bar are also fantastic They are really friendly and come
+                            over for a chat when they see you were dining alone Great menu choice and the food is top
+                            quality Special shout out to one of the waitresses on the top floor, Fiona. She noticed I
+                            was alone and spent some time just having a chat and give me ideas of where to visit on my
+                            unplanned extra day in Entebbe. I cannot speak highly enough of her as she made my dinner
+                            truly fantastic, giving me someone to talk to you as I was travelling alone. It really made
+                            a difference to my stay and just made this Hotel stay extra special.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Mark Durbridge</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>Great food everything was delicious and full of flavor. Service was just as
+                            impressive. Our waitress, Ochang Sung, was fast, attentive, and very professional. Her warm
+                            smile really made the experience even better. The rest of the staff were well coordinated.
+                            Definitely a place worth coming back to.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Sabrina Msangi</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>We recently celebrated my wife’s birthday at K-Hotel, and I cannot thank the team
+                            enough for making it a truly unforgettable experience. From the moment we arrived, the staff
+                            went out of their way to ensure every detail was perfect. The team surprised us with a
+                            beautifully decorated table and a thoughtful birthday gesture that really touched my wife.
+                            The service was seamless—attentive without being intrusive—and the food was absolutely
+                            exceptional. It’s rare to find a venue that balances professional service with such a warm,
+                            welcoming atmosphere. If you are looking for a place to celebrate a special milestone,
+                            K-Hotel is the perfect choice. We will definitely be back! Barbra was outstanding! She's
+                            smart in all ways!.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Kibuga Davis</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>I have spent 5 days in the hotel, all I am gonna say it's wonderful place to be
+                            there, I love it and recommend. Server's name Dorothy</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Fadil Omer</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>SSENYONGA JOHNSON made my day at rooftop so lovely and enjoyable, he really served
+                            me and my wife with care ,love and smile gave me a reason of coming back to k hotels. And
+                            also an appreciation to the chef who made my order in time and wel done ,beef combo, pork
+                            chops,dawa tea ,warm water and grilled fish filllets .</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Shelby Maffy</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>I really enjoyed the warm welcome from Jackline Nassazi her Reception was the best
+                            and also Melissa who I found at Emiboozi who recommended us to come here and food was so
+                            delicious and served on time with quick response from Nassazi .</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Simon Peter Kigozi</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>We had a very. Good time. Here. And. Our. Server Sundy she. Made our time so
+                            peaceful You know the breeze the. Music. the. Environment wow delicious. Experience
+                        </blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>Tutende Regina</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>Excellent atmosphere. Outstanding service and behaviour of staffs. Also the food is
+                            so so so delicious. The food was suggested by the staff here, it turned out perfect for the
+                            dinner in the cold breeze.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>kanij jhumu</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                    <article class="guest-quote-card">
+                        <div class="guest-quote-meta"><span class="guest-quote-stars"
+                                aria-label="5 out of 5 stars">★★★★★</span><span class="guest-quote-source">Google</span>
+                        </div>
+                        <blockquote>The food was nice, well prepared and in good time. Well organised service. Dorothy
+                            has done a wonderful job, quite friendly and caring.</blockquote>
+                        <button class="guest-quote-toggle" type="button" aria-expanded="false">Read more</button>
+                        <div class="guest-quote-author"><strong>TOM NGOYA</strong><a
+                                href="https://www.google.com/maps/place/K+Hotels+Entebbe/@0.0642991,32.4741371,1164m/data=!3m1!1e3!4m11!3m10!1s0x177d8420c44316e9:0x91ea0f46ba9830b1!5m2!4m1!1i2!8m2!3d0.0642991!4d32.4741371!9m1!1b1!16s%2Fg%2F11f_c02gcz?entry=ttu"
+                                target="_blank" rel="noopener noreferrer">View K Hotels on Google</a></div>
+                    </article>
+                </div>
+            </section>
             <p class="note">Review counts and rankings can change. Figures shown here were supplied in the 14 October
                 2026 change brief; refresh them before publishing.</p>
         </div>
@@ -225,7 +562,14 @@
                     <li><a href="/conferences/">M.I.C.E</a></li>
                     <li><a href="/amenities/">Amenities</a></li>
                     <li><a href="/about/">About</a></li>
-                    <li><a href="/contact/">Contact Us</a></li><li><a href="/offers/">Offers</a></li><li><a href="/entebbe-airport-hotel/">Airport Hotel</a></li><li><a href="/entebbe-safari-gateway/">Safari Gateway</a></li><li><a href="/spa/">Linora Spa</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/at-a-glance/">At a Glance</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                    <li><a href="/offers/">Offers</a></li>
+                    <li><a href="/entebbe-airport-hotel/">Airport Hotel</a></li>
+                    <li><a href="/entebbe-safari-gateway/">Safari Gateway</a></li>
+                    <li><a href="/spa/">Linora Spa</a></li>
+                    <li><a href="/reviews/">Reviews</a></li>
+                    <li><a href="/faq/">FAQ</a></li>
+                    <li><a href="/at-a-glance/">At a Glance</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -235,7 +579,9 @@
                     <li><i class="fa fa-phone"></i><a href="tel:+256777846000">Main: +256 777 846 000</a></li>
                     <li><i class="fa fa-phone"></i><a href="tel:+256707100001">Secondary: +256 707 100 001</a></li>
 
-                    <li><i class="fa fa-envelope"></i><a href="mailto:info@khotels.ug">info@khotels.ug</a></li><li><i class="fa fa-envelope"></i><a href="mailto:fo.ebb@khotels.ug">24/7 Front office: fo.ebb@khotels.ug</a></li>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:info@khotels.ug">info@khotels.ug</a></li>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:fo.ebb@khotels.ug">24/7 Front office:
+                            fo.ebb@khotels.ug</a></li>
 
                 </ul>
                 <div class="footer-social-modern">
@@ -259,6 +605,21 @@
     </footer>
     <script src="/seo-pages.js" defer></script>
     <script src="/script.js" defer></script>
+    <script>
+        document.querySelectorAll('.guest-quote-card').forEach((card, index) => {
+            const quote = card.querySelector('blockquote');
+            const button = card.querySelector('.guest-quote-toggle');
+            if (!quote || !button) return;
+            quote.id = `guest-review-${index + 1}`;
+            button.setAttribute('aria-controls', quote.id);
+            if (quote.textContent.trim().length < 210) button.hidden = true;
+            button.addEventListener('click', () => {
+                const expanded = card.classList.toggle('is-expanded');
+                button.setAttribute('aria-expanded', String(expanded));
+                button.textContent = expanded ? 'Read less' : 'Read more';
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -1284,7 +1284,7 @@ body {
 
     .khotel-wrapper {
         border-radius: 20px;
-        height: 560px;
+        height: 620px;
     }
 
     .khotel-slide img {
@@ -2158,4 +2158,13 @@ p {
   .kh-discount-label {
     font-size: 16px;
   }
+}
+.feature-content a,
+.feature-content a:visited {
+    color: #d4a53f;
+}
+
+.feature-content a:hover,
+.feature-content a:focus-visible {
+    color: #f0c96e;
 }
