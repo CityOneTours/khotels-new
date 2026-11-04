@@ -101,11 +101,19 @@ document.querySelectorAll('.location-slider').forEach(slider => {
     }, 3000);
 });
 
- window.addEventListener("load", function () {
-    setTimeout(function () {
-      document.getElementById("khOfferPopup").classList.add("show");
-    }, 1200);
-  });
+window.addEventListener("load", function () {
+  var shown = false;
+  function showKhPopup() {
+    if (shown) return;
+    shown = true;
+    document.getElementById("khOfferPopup").classList.add("show");
+  }
+  // show after 10 seconds, or 2.5 seconds after the visitor first scrolls
+  setTimeout(showKhPopup, 10000);
+  window.addEventListener("scroll", function () {
+    setTimeout(showKhPopup, 2500);
+  }, { once: true, passive: true });
+});
 
   function closeKhPopup() {
     document.getElementById("khOfferPopup").classList.remove("show");
