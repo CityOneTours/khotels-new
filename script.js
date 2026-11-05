@@ -1,3 +1,7 @@
+window.addEventListener('load', function () {
+  document.querySelector('.hero').classList.add('ready');
+});
+
 /* ====== Nav bar ====== */
 
 

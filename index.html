@@ -28,42 +28,43 @@
     <meta name="twitter:description"
         content="4-star hotel in Entebbe, rated #1 on Tripadvisor. Lake Victoria views, pool, spa, rooftop lounge and conference rooms. Rooms from USD 105 a night.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@500;600&display=swap"
-        rel="stylesheet">
+    <!-- Self-hosted fonts (no Google Fonts request) -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/open-sans-v44-latin-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-v40-latin-700.woff2" crossorigin>
+
+    <!-- Hero image (LCP): mobile gets the 640px version -->
+    <link rel="preload" as="image" href="/images/all-images/junior-lake-suite-studio-compressor.webp"
+        imagesrcset="/images/all-images/junior-lake-suite-640.webp 640w, /images/all-images/junior-lake-suite-studio-compressor.webp 1052w"
+        imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="/style.css">
-    <!-- <link rel="stylesheet" href="/kh-sections.css"> -->
     <link rel="icon" href="/images/khotel-logo-1.png">
     <meta name="msvalidate.01" content="D13FDD3E89BA69DC6FAE90C2A7E53284" />
-
-
-
     <meta name="google-site-verification" content="VghNq8BoQ_IWDd8lPKeUGOwb80UEjmPHbJ9B9lbGGME" />
-    <!-- Font Awesome: loads without blocking the page (Step 2) -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </noscript>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FR5F9NX8FL"></script>
+    <!-- Font Awesome lite: only the icons we use (about 4 KB, self-hosted) -->
+    <link rel="preload" as="font" type="font/woff2" href="/webfonts/fa-solid-lite.woff2" crossorigin>
+    <link rel="stylesheet" href="/fa-lite.css">
+
+    <!-- Google Analytics: tiny stub now, big script loads after interaction / 4s -->
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-FR5F9NX8FL', {
-            'linker': {
-                'domains': ['khotels.ug', 'bookings.resavenue.com']
-            }
+            'linker': { 'domains': ['khotels.ug', 'bookings.resavenue.com'] }
         });
+        function loadGA() {
+            if (window.__ga) return; window.__ga = 1;
+            var s = document.createElement('script'); s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FR5F9NX8FL';
+            document.head.appendChild(s);
+        }
+        ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (e) {
+            addEventListener(e, loadGA, { once: true, passive: true });
+        });
+        setTimeout(loadGA, 4000);
     </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -163,14 +164,14 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <!-- Background Carousel Images -->
-        <img src="/images/all-images/junior-lake-suite-studio-compressor.webp" class="active"
-            alt="Luxury hotel in Entebbe near Entebbe International Airport – K Hotels" width="1052" height="702"
-            decoding="async" loading="eager" fetchpriority="high">
-        <img src="/images/all-images/conference-hall-841.webp"
-            alt="Rooftop restaurant with Lake Victoria view in Entebbe" width="2397" height="1595" decoding="async"
-            loading="lazy">
+        <img src="/images/all-images/junior-lake-suite-studio-compressor.webp"
+            srcset="/images/all-images/junior-lake-suite-640.webp 640w, /images/all-images/junior-lake-suite-studio-compressor.webp 1052w"
+            sizes="100vw" class="active" alt="Luxury hotel in Entebbe near Entebbe International Airport – K Hotels"
+            width="1052" height="702" decoding="async" loading="eager" fetchpriority="high">
         <img src="/images/all-images/conference-hall-841.webp" alt="Conference hall at K Hotels Entebbe" width="841"
             height="562" decoding="async" loading="lazy">
+        <img src="/images/all-images/rooftop-copy.webp" alt="Rooftop lounge at K Hotels Entebbe" width="786"
+            height="523" decoding="async" loading="lazy">
 
         <!-- Content -->
         <div class="hero-content">
@@ -257,8 +258,8 @@
             width="1804" height="576" decoding="async" loading="lazy">
 
         <!-- Mobile Image (hidden on desktop) -->
-        <img src="/images/all-images/room-image.webp" class="hotel-image-mobile"
-            alt="K Hotels Room - Mobile View" width="1052" height="702" decoding="async" loading="lazy">
+        <img src="/images/all-images/room-image.webp" class="hotel-image-mobile" alt="K Hotels Room - Mobile View"
+            width="1052" height="702" decoding="async" loading="lazy">
 
         <div class="content-section">
             <div class="content-wrapper">
@@ -331,7 +332,7 @@
                         <img src="/images/all-images/victoria-mall-2friends-600x400.webp"
                             class="location-slide active-slide" alt="Prime Location 1" width="600" height="400"
                             decoding="async" loading="lazy">
-                        <img src="/images/all-images/imperial-apartments.webp   " class="location-slide"
+                        <img src="/images/all-images/imperial-apartments.webp" class="location-slide"
                             alt="Imperial Apartments at K Hotels Entebbe" width="600" height="400" decoding="async"
                             loading="lazy">
                     </div>
@@ -487,7 +488,7 @@
                     </div>
                 </div>
                 <div class="kh-benefit-card">
-                    <img src="images/all-images/frute-box-700.webp" width="1051" height="761" alt="Fruit Basket"
+                    <img src="/images/all-images/frute-box-700.webp" width="1051" height="761" alt="Fruit Basket"
                         decoding="async" loading="lazy">
                     <div>
                         <h3>Fruit Basket</h3>
@@ -777,7 +778,8 @@
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-col footer-about">
-                <img src="/images/all-images/khotel-logo-small.webp" alt="K Hotels Entebbe logo" class="logo-footer">
+                <img src="/images/all-images/khotel-logo-small.webp" alt="K Hotels Entebbe logo" class="logo-footer"
+                    width="400" height="215" decoding="async" loading="lazy">
                 <p>Experience luxury, comfort, and hospitality redefined. K Hotels offers elegant spaces, world-class
                     amenities, and exceptional service to make every stay memorable.</p>
             </div>
@@ -831,8 +833,15 @@
             <p>© 2026 K Hotels. All Rights Reserved. </p>
         </div>
     </footer>
-    <script src="/script.js"></script>
+    <script src="/script.js" defer></script>
     <script src="/seo-pages.js" defer></script>
+    <script>
+        /* turns on the hero fade only after the page has loaded, so the first image shows instantly */
+        window.addEventListener('load', function () {
+            var h = document.querySelector('.hero');
+            if (h) h.classList.add('ready');
+        });
+    </script>
 </body>
 
 </html>
